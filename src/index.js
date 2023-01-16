@@ -22,20 +22,42 @@ document.addEventListener('copy', (event) => {
 });
 
 
-// idk DNW
-const navLinkHover = document.querySelectorAll('nav a');
-//navLinkHover.children.addEventListener('mouseover', (event)=> event.target.style.backgroundColor = 'gray')
+// // idk DNW
+// const navLinkHover = document.querySelectorAll('nav a');
+// //navLinkHover.children.addEventListener('mouseover', (event)=> event.target.style.backgroundColor = 'gray')
 
-// select DNW
-document.body.addEventListener('select', (event)=> event.target.style.colors = 'gray')
+// // select DNW
+// document.body.addEventListener('select', (event)=> event.target.style.colors = 'gray')
 
+//p selector
+const introParagraph = document.querySelector('.intro p');
 
 // Prevent spacebar from scrolling you down the page
 document.addEventListener('keypress', (event) => {
-    if(event.key === " "){event.preventDefault();}
+    if(event.key === " ")
+        {event.preventDefault();}
     }  
 );
 
+// Making Delete button work
+document.addEventListener('keypress', (event) => {
+    if(event.key === "Backspace"){
+        introParagraph.textContent = introParagraph.textContent.slice(0, introParagraph.textContent.length - 1);
+    }
+}  
+);
+
 // adding text to the first paragraph just by typing
-const introParagraph = document.querySelector('.intro p');
-document.addEventListener('keypress', (event) => introParagraph.textContent += event.key);
+
+document.addEventListener('keypress', (event) => {
+    if(event.key !== "Backspace"){
+        introParagraph.textContent += event.key
+    }
+});
+
+// Select first paragraph
+introParagraph.addEventListener('click', (event) => {
+    event.target.style.border = '1px solid blue';
+    event.target.style.borderRadius = '5px'
+    }
+)
