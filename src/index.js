@@ -1,10 +1,12 @@
 import './less/index.less'
 
+// 1. Click
 // Changes the title's color when it is clicked
 const heading1 = document.querySelector('h1');
 heading1.addEventListener('click', (event) => {event.target.style.color = `rgb(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)})`;});
 
 
+// 2. and 3. Mouseover and Mouseout
 // Highlight nav bar items
 const navHover = document.querySelector('nav');
 navHover.addEventListener('mouseover', (event) => {
@@ -14,6 +16,7 @@ navHover.addEventListener('mouseover', (event) => {
 navHover.addEventListener('mouseout', (event) => {event.target.style.color = "";
 })
 
+// 4. Copy
 // Temporarily replace the text of what you copy with "Copy That!"
 document.addEventListener('copy', (event) => {
     const origText = event.target.textContent;
@@ -21,17 +24,10 @@ document.addEventListener('copy', (event) => {
     setTimeout(() => {event.target.textContent = origText;}, 1000);
 });
 
-
-// // idk DNW
-// const navLinkHover = document.querySelectorAll('nav a');
-// //navLinkHover.children.addEventListener('mouseover', (event)=> event.target.style.backgroundColor = 'gray')
-
-// // select DNW
-// document.body.addEventListener('select', (event)=> event.target.style.colors = 'gray')
-
 //p selector
 const introParagraph = document.querySelector('.intro p');
 
+// 5. Keypress
 // Prevent spacebar from scrolling you down the page
 document.addEventListener('keypress', (event) => {
     if(event.key === " ")
@@ -61,3 +57,42 @@ introParagraph.addEventListener('click', (event) => {
     event.target.style.borderRadius = '5px'
     }
 )
+
+// add padding to paragraphs
+const paragraphs = document.querySelectorAll('p');
+paragraphs.forEach((element)=> {
+    element.style.padding = "5px";
+})
+
+// linking the links to google searches
+const links = document.querySelectorAll('.nav-link');
+links.forEach((element)=>{
+    const linkName = element.textContent.toLowerCase();
+    element.setAttribute('href', `https:www.google.com/search?q=${linkName}`)
+})
+
+// 6. Double Click event
+// Search Google for whatever you double click
+document.addEventListener('dblclick', ()=> {
+    const searchThis = window.getSelection();
+    window.open(`https:www.google.com/search?q=${searchThis}`, '_blank');
+})
+
+// 7. mousemove
+// Console logs "mousemove" when your mouse first moves
+document.body.addEventListener('mousemove', () => {
+    console.log("mousemove");
+    //throttle?
+})
+
+// 8. & 9. mouseenter and mouseleave
+// Explanation
+document.body.addEventListener('click', (event) => {
+    console.log(event);
+})
+
+// 10. 
+// Explanation
+document.body.addEventListener('click', (event) => {
+    console.log(event);
+})
