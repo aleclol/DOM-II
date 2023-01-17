@@ -86,12 +86,20 @@ document.body.addEventListener('mousemove', () => {
 })
 
 // 8. & 9. mouseenter and mouseleave
-// Explanation
-document.body.addEventListener('click', (event) => {
-    console.log(event);
+// Changes color of text in intro paragraph based on mouse location
+
+
+introParagraph.addEventListener('mouseenter', (event) => {
+    console.log('enter!');
+    introParagraph.style.color = "red";
 })
 
-// 10. 
+introParagraph.addEventListener('mouseleave', (event) => {
+    console.log('leave!');
+    introParagraph.style.color = "initial";
+})
+
+// 10. Scroll
 // Explanation
 document.body.addEventListener('click', (event) => {
     console.log(event);
