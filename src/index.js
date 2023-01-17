@@ -100,7 +100,13 @@ introParagraph.addEventListener('mouseleave', (event) => {
 })
 
 // 10. Scroll
-// Explanation
-document.body.addEventListener('click', (event) => {
-    console.log(event);
+// Changes title to "Scrolling!" so user knows they are indeed "scrolling!"
+document.addEventListener('scroll', (event) => {
+    console.log('scrolling!');
+    if(event){
+        heading1.textContent = "Scrolling!"
+        setTimeout(() => {
+            heading1.textContent = "Fun Bus";
+        }, 2000)
+    }
 })
