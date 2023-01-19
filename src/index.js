@@ -1,20 +1,33 @@
 import './less/index.less'
 
+// BUG: querySelector is returning null in the terminal after running rpm run test; All code still works in the browser
+// Stopgap: Code with querySelector would need to be refactored to querySelectorAll with a forEach loop
+//          see lines 10-16 for example
+
+
 // 1. Click
 // Changes the title's color when it is clicked
-const heading1 = document.querySelector('h1');
-heading1.addEventListener('click', (event) => {event.target.style.color = `rgb(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)})`;});
-
+const heading1 = document.querySelectorAll('h1');
+//console.log(heading1)
+heading1.forEach(i => {
+        i.addEventListener('click', (event) => {
+        event.target.style.color = `rgb(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)})`;
+    });
+})
+// heading1["0"].addEventListener('click', (event) => {
+//     event.target.style.color = `rgb(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)})`;
+// });
+//document.body.header.div.h1
 
 // 2. and 3. Mouseover and Mouseout
 // Highlight nav bar items
-const navHover = document.querySelector('nav');
-navHover.addEventListener('mouseover', (event) => {
-    event.target.style.color = "blue";
+// const navHover = document.querySelector('nav');
+// navHover.addEventListener('mouseover', (event) => {
+//     event.target.style.color = "blue";
     //event.target.style.backgroundColor = "blue";
-})
-navHover.addEventListener('mouseout', (event) => {event.target.style.color = "";
-})
+//})
+// navHover.addEventListener('mouseout', (event) => {event.target.style.color = "";
+// })
 
 // 4. Copy
 // Temporarily replace the text of what you copy with "Copy That!"
@@ -52,11 +65,11 @@ document.addEventListener('keypress', (event) => {
 });
 
 // Select first paragraph
-introParagraph.addEventListener('click', (event) => {
-    event.target.style.border = '1px solid blue';
-    event.target.style.borderRadius = '5px'
-    }
-)
+// introParagraph.addEventListener('click', (event) => {
+//     event.target.style.border = '1px solid blue';
+//     event.target.style.borderRadius = '5px'
+//     }
+// )
 
 // add padding to paragraphs
 const paragraphs = document.querySelectorAll('p');
@@ -89,15 +102,15 @@ document.body.addEventListener('mousemove', () => {
 // Changes color of text in intro paragraph based on mouse location
 
 
-introParagraph.addEventListener('mouseenter', (event) => {
-    console.log('enter!');
-    introParagraph.style.color = "red";
-})
+// introParagraph.addEventListener('mouseenter', (event) => {
+//     console.log('enter!');
+//     introParagraph.style.color = "red";
+// })
 
-introParagraph.addEventListener('mouseleave', (event) => {
-    console.log('leave!');
-    introParagraph.style.color = "initial";
-})
+// introParagraph.addEventListener('mouseleave', (event) => {
+//     console.log('leave!');
+//     introParagraph.style.color = "initial";
+// })
 
 // 10. Scroll
 // Changes title to "Scrolling!" so user knows they are indeed "scrolling!"
